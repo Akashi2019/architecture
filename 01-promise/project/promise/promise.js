@@ -14,7 +14,7 @@ class Promise {
       if (this.state === PENDING) {
         this.state = RESOLVED;
         this.value = value;
-        this.onResolvedCallbacks.forEach((fn) => fn(this.value));
+        this.onResolvedCallbacks.forEach((fn) => fn());
       }
     };
 
@@ -22,7 +22,7 @@ class Promise {
       if (this.state === REJECTED) {
         this.state = REJECTED;
         this.reason = reason;
-        this.onRejectedCallbacks.forEach((fn) => fn(this.reason));
+        this.onRejectedCallbacks.forEach((fn) => fn());
       }
     };
 
